@@ -7,16 +7,11 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Deploy to Hetzner
+      - name: Run deploy script on server
         uses: appleboy/ssh-action@v1.2.0
         with:
           host: ${{ secrets.HETZNER_HOST }}
           username: root
           key: ${{ secrets.HETZNER_SSH_KEY }}
           script: |
-            cd /opt/nextra
-            git fetch --all
-            git reset --hard origin/master
-            npm ci --omit=dev
-            npm run build
-            systemctl restart nextra
+            sudo /opt/nextra/deploy.sh

@@ -6,5 +6,5 @@ const withNextra = nextra({
 
 
 export default withNextra({
-  staticImage: true
+  
 })

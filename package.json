@@ -11,7 +11,7 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
-    "postbuild": "pagefind --site .next/server/app --output-path public/_pagefind"
+    "postbuild": "npx pagefind --site .next/server/app --output-path public/_pagefind"
   },
   "devDependencies": {
     "@types/node": "24.5.2",
