@@ -1,0 +1,80 @@
+# Setup
+
+This guide will help you set up the AllTheWikis project from scratch. Alternatively, you can also contribute straight from the 
+website by clicking the **"Edit this page"** button at the bottom of the right side on each page.
+
+## Prerequisites
+
+Before starting, you'll to have the following installed:
+
+### For Windows:
+1. **Git for Windows** - Download from [git-scm.com](https://git-scm.com/download/win)
+2. **Node.js** - Download the LTS version from [nodejs.org](https://nodejs.org/en/download/)
+- This will also install npm (Node Package Manager) automatically
+
+### For Linux:
+1. **Git** - Install using your distribution's package manager:
+```bash
+# Ubuntu/Debian
+sudo apt update && sudo apt install git
+
+# Fedora/CentOS/RHEL
+sudo dnf install git
+# or for older versions: sudo yum install git
+
+# Arch Linux
+sudo pacman -S git
+```
+
+2. **Node.js and npm** - Install using your distribution's package manager:
+```bash
+# Ubuntu/Debian
+sudo apt install nodejs npm
+
+# Fedora/CentOS/RHEL
+sudo dnf install nodejs npm
+
+# Arch Linux
+sudo pacman -S nodejs npm
+```
+
+## Cloning the GitHub Repository
+
+To get started, you need to first clone the GitHub repository.
+
+### GitHub Website
+
+1. Open the [AllTheWikis repository](https://github.com/Satherov/AllTheWikis)
+2. Click the `Fork` button in the top right corner
+
+![GitHub Fork](/image/contribute/github-fork.png)
+
+3. Choose an owner and name for your fork
+4. Click `Create fork`
+5. You should now have a copy of the repository in your own GitHub account
+
+### Terminal:
+```bash
+git clone https://github.com/Satherov/AllTheWikis
+cd AllTheWikis
+```
+
+## Setting up the editor
+
+You can use whatever editor you prefer. A few choices are:
+- [Visual Studio Code](https://code.visualstudio.com/)
+- [Jetbrains Webstorm](https://www.jetbrains.com/webstorm/)
+
+From there open your project inside the editor or clone it right from the editor to your machine. 
+
+- For **Visual Studio Code** you can look up how to clone a repository [here](https://code.visualstudio.com/docs/sourcecontrol/intro-to-git)
+- For **Webstorm** you can look up how to clone a repository [here](https://www.jetbrains.com/help/webstorm/manage-projects-hosted-on-github.html#clone-from-GitHub)
+
+## Installing Dependencies
+
+Once you have the repository cloned and are inside the project directory, install all the required dependencies. You should
+run this command in the root directory of the project from your editor's terminal.
+
+```bash
+npm install
+```
