@@ -1,14 +1,17 @@
 export default {
-  index: {
-    title: 'Contributing',
-    theme: {
-      breadcrumb: false
-    }
+  "index": {
+    title: "Introduction",
   },
-  setup: {
-    title: 'Setup',
+  "setup": {
+    title: "Setup",
   },
-  style_guide: {
-    title: 'Style Guide',
+  "style-guide": {
+    title: "Style Guide",
   },
+  "editing": {
+    title: "Editing",
+  },
+  "syntax": {
+    title: "Syntax",
+  }
 }

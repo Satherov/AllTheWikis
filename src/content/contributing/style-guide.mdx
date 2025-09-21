@@ -1,0 +1,124 @@
+import {FileTree} from 'nextra/components'
+
+# Style Guide
+
+This style guide outlines the **naming conventions**, **file structure**, and **organizational standards** for this project to help keep consistency across all contributions.
+Contributions **not** following these guidelines may be **rejected**. Generally a lot of the style guidelines are enforced by the `.editorconfig` file, so you should make sure to
+install the [EditorConfig plugin](https://editorconfig.org/#download) for your editor and run it *before* submitting a pull request. (Webstorm has this built-in)
+
+## File and Folder Naming Conventions
+
+### General Rules
+- **All lowercase**: Use only lowercase letters for all file and folder names
+- **Dash separation**: Use dashes (-) to separate words, never spaces or underscores
+- **Descriptive names**: Choose clear, descriptive names that indicate the content or purpose
+
+### Examples
+**Good:**
+- `getting-started.mdx`
+- `user-auth.mdx`
+- `api-reference/`
+- `database-setup/`
+
+**Bad:**
+- `Getting_Started.mdx` (uppercase, underscore)
+- `user authentication.mdx` (space, name can be shortened)
+- `APIReference/` (uppercase, no dash)
+- `DB_setup/` (uppercase, underscore, name should be spelled out)
+
+## Required Folder Structure
+
+Every new folder **must** contain these two files:
+
+### 1. `_meta.js`
+Defines the navigation structure and metadata for the folder contents. See [`_meta.js`](https://nextra.site/docs/file-conventions/meta-file) for more information.
+
+```js
+export default {
+    example: {
+        title: "Example"
+    }
+}
+```
+
+### 2. `index.mdx`
+The main landing page for this section, displayed when users navigate to the folder.
+
+```mdx
+---
+asIndexPage: true
+---
+
+This is required for proper display and must be at the very top
+
+# Example
+
+...
+```
+
+## Project File Structure
+
+The project follows this organizational structure:
+
+<FileTree>
+    <FileTree.Folder name="AllTheWikis" open>
+        <FileTree.Folder name="public" open>
+            <FileTree.Folder name="image" open>
+                <FileTree.File name="example.png"/>
+            </FileTree.Folder>
+        </FileTree.Folder>
+        <FileTree.Folder name="src" open>
+            <FileTree.Folder name="app" open>
+                <FileTree.Folder name="[[...mdxPath]]" open>
+                    <FileTree.File name="page.jsx"/>
+                </FileTree.Folder>
+                <FileTree.File name="layout.jsx"/>
+            </FileTree.Folder>
+            <FileTree.Folder name="content" open>
+                <FileTree.File name="_meta.js"/>
+                <FileTree.File name="index.mdx"/>
+                <FileTree.Folder name="example" open>
+                    <FileTree.File name="_meta.js"/>
+                    <FileTree.File name="index.mdx"/>
+                    <FileTree.File name="page-1.mdx"/>
+                </FileTree.Folder>
+            </FileTree.Folder>
+            <FileTree.File name="mdx-components.js"/>
+        </FileTree.Folder>
+        <FileTree.File name="package.json"/>
+        <FileTree.File name="next.config.mjs"/>
+        <FileTree.File name="tsconfig.json"/>
+    </FileTree.Folder>
+</FileTree>
+
+### Icons
+
+Use Lucide React icons for consistency. You can find the full list of icons at [lucide.dev](https://lucide.dev/icons/). To use an icon, hover over it,
+copy the name and turn it into PascalCase in the import. For example: `user-round` on the site becomes `UserRound` in code.
+
+```mdx
+import { UserRound } from 'lucide-react'
+```
+
+## Content Writing Standards
+
+### Headings
+- Use descriptive, concise headings
+- Follow proper heading hierarchy (H1 → H2 → H3)
+- Use sentence case for headings
+
+### Code Examples
+- Always specify the language for syntax highlighting
+- When possible, include complete, working examples
+- Add comments to explain complex code
+
+### Links
+- Use descriptive link text (avoid "click here")
+- Link to relevant internal pages when helpful
+- Link to external resources when necessary
+
+## Asset Management
+
+Assets such as **images**, **videos** or similar files go into the `public` folder and from there should be organized by file type. For example, `example.png` should go into
+`public/image/example.png`. You can reference the image from Markdown via `image/example.png`, the `public` bit is **not** needed. You're encouraged to use subfolders inside
+the type folders to keep things organized.

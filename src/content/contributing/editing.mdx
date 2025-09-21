@@ -1,0 +1,165 @@
+import {FileTree} from 'nextra/components'
+
+# Editing
+
+This section will explain how you can modify entries or add some new ones.
+
+## Modifying Entries
+
+On every page there is a `Edit this page` button which will take you to the respective file on GitHub.
+
+From there you can click the edit button and make your changes and then submit a pull request. That's the easiest way to edit something. Of course you can still
+edit a local copy and submit a pull request from there.
+
+## Adding Entries
+
+New pages go in the `src/content` folder. The top most folders are the sections you can see in the nav bar.
+
+### Sections
+
+To create a new section, you need to create a new folder in the `src/content` folder, put in your `index.mdx` and `_meta.js` file and mark the index file as a `page`.
+
+<div className="mx-auto max-w-[900px] pt-4 pb-4">
+    <div className="grid md:grid-cols-2 gap-4 items-stretch rounded-xl border border-zinc-700/50 p-4">
+
+        <div className="flex flex-col h-full [&>pre]:flex-1 [&>pre]:h-full [&>pre]:m-0">
+            ```js showLineNumbers filename="_meta.js"
+            export default {
+                "index": {
+                    title: "Welcome",
+                    type: "page"
+                }
+            }
+            ```
+        </div>
+
+        <div className="flex flex-col h-full [&>*:first-child]:flex-1 [&>*:first-child]:h-full [&>*:first-child]:m-0">
+            <FileTree>
+                <FileTree.Folder name="src" open>
+                    <FileTree.Folder name="content" open>
+                        <FileTree.Folder name="example-section" open>
+                            <FileTree.File name="_meta.js" active/>
+                            <FileTree.File name="index.mdx"/>
+                        </FileTree.Folder>
+                    </FileTree.Folder>
+                </FileTree.Folder>
+            </FileTree>
+        </div>
+    </div>
+</div>
+
+This will make the folder act as a new section with the index page being the landing page of this section.
+
+### Folders
+
+To create new folders, you simply create the folder in the respective section folder and once again add the `index.mdx` and `_meta.js` file.
+Make sure to point to the `index.mdx` file from the `_meta.js` file of the section.
+
+<div className="mx-auto max-w-[900px] pt-4 pb-4">
+    <div className="grid md:grid-cols-2 gap-4 items-stretch rounded-xl border border-zinc-700/50 p-4">
+
+        <div className="flex flex-col h-full [&>pre]:flex-1 [&>pre]:h-full [&>pre]:m-0">
+            ```js showLineNumbers filename="_meta.js"
+            export default {
+                "index": {
+                    title: "Welcome",
+                    type: "page"
+                },
+                "example-folder": {
+                    title: "Example"
+                }
+            }
+            ```
+        </div>
+
+        <div className="flex flex-col h-full [&>*:first-child]:flex-1 [&>*:first-child]:h-full [&>*:first-child]:m-0">
+            <FileTree>
+                <FileTree.Folder name="src" open>
+                    <FileTree.Folder name="content" open>
+                        <FileTree.Folder name="example-section" open>
+                            <FileTree.File name="_meta.js" active/>
+                            <FileTree.File name="index.mdx"/>
+                            <FileTree.Folder name="example-folder" open>
+                                <FileTree.File name="_meta.js"/>
+                                <FileTree.File name="index.mdx"/>
+                            </FileTree.Folder>
+                        </FileTree.Folder>
+                    </FileTree.Folder>
+                </FileTree.Folder>
+            </FileTree>
+        </div>
+    </div>
+</div>
+
+From inside the folder, you need to mark your `index.mdx` as the index file of the folder.
+This is different from the section index file. You do **not** add the index file to the `_meta.js` file of the folder!
+If you do it **will *not* work!**
+
+<div className="mx-auto max-w-[900px] pt-4 pb-4">
+    <div className="grid md:grid-cols-2 gap-4 items-stretch rounded-xl border border-zinc-700/50 p-4">
+
+        <div className="flex flex-col h-full [&>pre]:flex-1 [&>pre]:h-full [&>pre]:m-0">
+            ```mdx showLineNumbers filename="index.mdx"
+            ---
+            asIndexFile: true
+            ---
+
+            # Header
+
+            This is the index file!
+            Some text here...
+            ```
+        </div>
+
+        <div className="flex flex-col h-full [&>*:first-child]:flex-1 [&>*:first-child]:h-full [&>*:first-child]:m-0">
+            <FileTree>
+                <FileTree.Folder name="src" open>
+                    <FileTree.Folder name="content" open>
+                        <FileTree.Folder name="example-section" open>
+                            <FileTree.File name="_meta.js"/>
+                            <FileTree.File name="index.mdx"/>
+                            <FileTree.Folder name="example-folder" open>
+                                <FileTree.File name="_meta.js"/>
+                                <FileTree.File name="index.mdx" active/>
+                            </FileTree.Folder>
+                        </FileTree.Folder>
+                    </FileTree.Folder>
+                </FileTree.Folder>
+            </FileTree>
+        </div>
+    </div>
+</div>
+
+<div className="mx-auto max-w-[900px] pt-4 pb-4">
+    <div className="grid md:grid-cols-2 gap-4 items-stretch rounded-xl border border-zinc-700/50 p-4">
+
+        <div className="flex flex-col h-full [&>pre]:flex-1 [&>pre]:h-full [&>pre]:m-0">
+            ```js {2} showLineNumbers filename="_meta.js"
+            export default {
+                // Empty!
+            }
+            ```
+        </div>
+
+        <div className="flex flex-col h-full [&>*:first-child]:flex-1 [&>*:first-child]:h-full [&>*:first-child]:m-0">
+            <FileTree>
+                <FileTree.Folder name="src" open>
+                    <FileTree.Folder name="content" open>
+                        <FileTree.Folder name="example-section" open>
+                            <FileTree.File name="_meta.js"/>
+                            <FileTree.File name="index.mdx"/>
+                            <FileTree.Folder name="example-folder" open>
+                                <FileTree.File name="_meta.js" active/>
+                                <FileTree.File name="index.mdx"/>
+                            </FileTree.Folder>
+                        </FileTree.Folder>
+                    </FileTree.Folder>
+                </FileTree.Folder>
+            </FileTree>
+        </div>
+    </div>
+</div>
+
+### Files
+
+Files dont require any special setup. Simply make a new `.mdx` file, add it to the `_meta.js` file of the folder it lives in and you're done

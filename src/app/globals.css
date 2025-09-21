@@ -1,0 +1,146 @@
+@import "tailwindcss";
+
+@variant dark (&:where(.dark *));
+
+:root {
+    --bg-primary: #09090b;
+    --bg-secondary: #18181b;
+    --bg-hover: #0f0f0f;
+    --text-primary: #e4e4e7;
+    --text-secondary: #a1a1aa;
+}
+
+.nx-container,
+.nextra-container,
+.container,
+[class*="container"],
+[class*="content"],
+main > div,
+article > div {
+    max-width: none !important;
+}
+
+main {
+    max-width: min(90vw, calc(100vw - 42rem)) !important;
+    width: min(90vw, calc(100vw - 42rem)) !important;
+}
+
+article {
+    max-width: none !important;
+    width: 100% !important;
+}
+
+body > div,
+#__next > div,
+[data-nextra-layout] {
+    max-width: none !important;
+}
+
+
+.nextra-content table,
+article table,
+main table,
+table {
+    width: 100% !important;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    background-color: var(--bg-primary);
+    border-radius: 12px;
+    overflow: clip;
+    table-layout: fixed;
+    min-width: 100%;
+}
+
+.nextra-content th,
+article th,
+main th,
+th {
+    background-color: var(--bg-secondary);
+    color: var(--text-secondary);
+    font-weight: 500;
+    font-size: 0.875rem;
+    padding: 0.75rem 1.5rem;
+    text-align: left;
+    border: none;
+    width: auto;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.nextra-content td,
+article td,
+main td,
+td {
+    padding: 1rem;
+    color: var(--text-primary);
+    border: none;
+    width: auto;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.nextra-content tbody tr,
+article tbody tr,
+main tbody tr,
+tbody tr {
+    background-color: var(--bg-primary) !important;
+}
+
+.nextra-content tbody tr:not(:last-child),
+article tbody tr:not(:last-child),
+main tbody tr:not(:last-child),
+tbody tr:not(:last-child) {
+    border-bottom: 1px solid var(--bg-secondary);
+}
+
+.nextra-content tbody tr:hover,
+article tbody tr:hover,
+main tbody tr:hover,
+tbody tr:hover {
+    background-color: var(--bg-hover);
+}
+
+.nextra-content td code,
+article td code,
+main td code,
+td code {
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+    padding: 0.125rem 0.375rem;
+    border-radius: 0.25rem;
+    font-size: 0.875rem;
+}
+
+/* Card Styles */
+#docs-card img {
+    object-fit: cover;
+    object-position: left;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    z-index: 0;
+    user-select: none;
+    pointer-events: none;
+}
+
+#search-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#search-card p {
+    max-width: 320px;
+}
+
+#search-card video {
+    position: absolute;
+    right: 0;
+    top: 24px;
+    height: 430px;
+    pointer-events: none;
+    max-width: 60%;
+}

@@ -1,0 +1,62 @@
+The general syntax to editing files is basic markdown, but since we're using MDX, there are some extra features you can use.
+
+## Markdown
+
+Markdown is generally used to format text and should be familiar to most people
+
+### Basics
+
+```md
+
+# Heading 1
+
+## Heading 2
+
+### Heading 3
+
+#### Heading 4
+
+*Italic*
+
+**Bold**
+
+***Bold Italic***
+
+~~Strikethrough~~
+
+`Inline Code`
+
+> Blockquote
+
+[Link](https://example.com)
+
+![Image-Alt](image/example.png)
+
+```
+
+# Heading 1
+
+## Heading 2
+
+### Heading 3
+
+#### Heading 4
+
+*Italic*
+
+**Bold**
+
+***Bold Italic***
+
+~~Strikethrough~~
+
+`Inline Code`
+
+> Blockquote
+
+[Link](https://example.com)
+
+{/* We do this because with ![Image-Alt]() Nextra will try and use an empty path instead of null as the source and whine */}
+<div className="pt-6">
+    <img src={null} alt="Image-Alt"/>
+</div>

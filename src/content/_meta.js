@@ -1,17 +1,10 @@
 export default {
-  index: {
-    title: 'Home',
-    display: 'hidden',
-    theme: {
-      breadcrumb: false,
-      footer: true,
-      toc: true,
-      pagination: false
-    }
+  "index": {
+    title: "Home",
+    type: "page",
   },
-  contributing: {
-    title: 'Contributing',
-    type: 'page',
-    href: '/contribute/contributing',
+  "contributing": {
+    title: "Contributing",
+    type: "page",
   }
 }
